@@ -42,6 +42,16 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
       aria-label="Welcome to Vinebreak"
       className="relative w-full h-screen overflow-hidden flex items-center justify-center bg-brand-200"
     >
+      {/* 葡萄藤图案背景 - 平铺、低透明度融入背景色 */}
+      <div
+        className="absolute inset-0 z-0 opacity-[0.55]"
+        style={{
+          backgroundImage: 'url(/images/hero-pattern.png)',
+          backgroundRepeat: 'repeat',
+          backgroundSize: 'auto',
+        }}
+        aria-hidden="true"
+      />
       {/* Content Layer - 无视差，避免滚动抖动 */}
       <div className="relative z-20 text-center px-6 max-w-5xl mx-auto w-full">
         <div
@@ -54,14 +64,14 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
         </div>
 
         <h1
-          className="text-5xl md:text-7xl lg:text-8xl text-brand-950 mb-4 leading-none tracking-tight font-medium"
+          className="font-display text-5xl md:text-7xl lg:text-8xl text-brand-950 mb-4 leading-[1.05] tracking-[0.02em] font-normal"
           style={{
             textShadow:
               '0 1px 2px rgba(255,255,255,0.8), 0 2px 8px rgba(0,0,0,0.08), 0 4px 16px rgba(0,0,0,0.06)',
           }}
         >
-          <span className="block opacity-0 animate-unblur" style={{ animationDelay: '0.5s' }}>Raw</span>
-          <span className="block font-light italic text-brand-800 font-serif opacity-0 animate-unblur -mt-1 md:-mt-3" style={{ animationDelay: '0.8s' }}>Luxury</span>
+          <span className="block opacity-0 animate-unblur font-medium" style={{ animationDelay: '0.5s' }}>Raw</span>
+          <span className="block font-light italic text-brand-800 opacity-0 animate-unblur -mt-1 md:-mt-3" style={{ animationDelay: '0.8s' }}>Luxury</span>
         </h1>
 
         <p
