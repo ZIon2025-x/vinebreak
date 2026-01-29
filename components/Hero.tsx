@@ -26,20 +26,19 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
   };
 
   return (
-    <section ref={heroRef} className="relative w-full h-screen overflow-hidden flex items-start justify-center pt-24 pb-20 bg-brand-200">
+    <section ref={heroRef} className="relative w-full h-screen overflow-hidden flex items-center justify-center bg-brand-200">
       {/* Parallax Background Image */}
       {/* Moves slightly slower than scroll (factor 0.5) to create depth */}
       <div 
         className="absolute inset-0 bg-cover bg-center z-0 will-change-transform"
         style={{ 
           backgroundImage: 'url("https://images.unsplash.com/photo-1596130495914-72750e605d21?q=80&w=2574&auto=format&fit=crop")',
-          opacity: 0.85,
           transform: `translateY(${scrollY * 0.5}px) scale(1.1)`, 
         }}
       ></div>
       
       {/* Gradient Overlays for smooth blending */}
-      <div className="absolute inset-0 bg-gradient-to-b from-brand-100/30 via-transparent to-brand-100/90 z-10"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-brand-100/50 via-brand-100/20 to-brand-100/95 z-10"></div>
       
       {/* Content Layer - Moves slightly faster upwards (factor -0.3) */}
       <div className="relative z-20 text-center px-6 max-w-5xl mx-auto w-full"
@@ -51,7 +50,7 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
             </span>
         </div>
         
-        <h1 className="text-5xl md:text-7xl lg:text-8xl text-brand-950 mb-4 leading-none tracking-tight font-medium drop-shadow-sm mix-blend-overlay opacity-90">
+        <h1 className="text-5xl md:text-7xl lg:text-8xl text-brand-950 mb-4 leading-none tracking-tight font-medium drop-shadow-sm">
           <span className="block opacity-0 animate-[unblur_1.5s_ease-out_0.5s_forwards]">Raw</span> 
           <span className="block font-light italic text-brand-800 font-serif opacity-0 animate-[unblur_1.5s_ease-out_0.8s_forwards] -mt-1 md:-mt-3">Luxury</span>
         </h1>
