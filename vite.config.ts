@@ -5,8 +5,8 @@ import react from '@vitejs/plugin-react';
 export default defineConfig(({ mode }) => {
     const env = loadEnv(mode, '.', '');
     const root = path.resolve(__dirname);
-    // 使用 entry.html 作为入口，构建输出为 index.html，避免 Vercel 上 index.html 被当作目录的 EISDIR 问题
-    const entryHtml = path.join(root, 'entry.html');
+    // HTML 入口放在 public/ 下，避免 Vercel 上根目录同名被当作目录导致 EISDIR
+    const entryHtml = path.join(root, 'public', 'app.html');
     return {
       root,
       base: './',
