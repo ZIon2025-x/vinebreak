@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Send, Sparkles, User, Sprout, Feather } from 'lucide-react';
 import { sendMessageStream } from '../services/geminiService';
 import { ChatMessage } from '../types';
@@ -14,8 +14,23 @@ export const AIConcierge: React.FC = () => {
   ]);
   const [inputValue, setInputValue] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const messagesContainerRef = useRef<HTMLDivElement>(null);
 
-  // 不因消息变化做任何自动滚动，用户视图与滚动位置完全由用户自己控制
+  // 仅滚动聊天容器内部到底部，绝不触动页面滚动（不用 scrollIntoView）
+  const scrollChatToBottom = () => {
+    const el = messagesContainerRef.current;
+    if (!el) return;
+    const threshold = 80;
+    const isNearBottom = el.scrollHeight - el.scrollTop - el.clientHeight < threshold;
+    if (isNearBottom) {
+      el.scrollTop = el.scrollHeight;
+    }
+  };
+
+  useEffect(() => {
+    scrollChatToBottom();
+  }, [messages]);
+
   const handleSend = async () => {
     if (!inputValue.trim() || isLoading) return;
 
@@ -123,8 +138,8 @@ export const AIConcierge: React.FC = () => {
                </div>
              </div>
 
-             {/* Chat Messages Area - 不因内容更新改变滚动位置 */}
-             <div className="h-[500px] overflow-y-auto p-8 space-y-8 bg-brand-50 relative z-10 scrollbar-hide">
+             {/* Chat Messages Area - 仅在此 div 内滚动，不触发 window 滚动 */}
+             <div ref={messagesContainerRef} className="h-[500px] overflow-y-auto p-8 space-y-8 bg-brand-50 relative z-10 scrollbar-hide">
                {messages.map((msg) => (
                  <div 
                    key={msg.id} 
