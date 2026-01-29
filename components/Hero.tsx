@@ -26,7 +26,7 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
   };
 
   return (
-    <section ref={heroRef} className="relative w-full min-h-screen flex items-center justify-center bg-brand-200 overflow-x-hidden overflow-y-auto">
+    <section ref={heroRef} className="relative w-full h-screen overflow-hidden flex items-center justify-center bg-brand-200">
       {/* Parallax Background Image */}
       {/* Moves slightly slower than scroll (factor 0.5) to create depth */}
       <div 
@@ -42,25 +42,25 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
       <div className="absolute inset-0 bg-gradient-to-b from-brand-100/30 via-transparent to-brand-100/90 z-10"></div>
       
       {/* Content Layer - Moves slightly faster upwards (factor -0.3) */}
-      <div className="relative z-20 text-center px-6 max-w-5xl mx-auto mt-16"
+      <div className="relative z-20 text-center px-6 max-w-5xl mx-auto py-8"
            style={{ transform: `translateY(${scrollY * -0.3}px)` }} 
       >
-        <div className="inline-block border border-brand-900/30 bg-brand-100/60 backdrop-blur-md px-8 py-3 rounded-full mb-10 opacity-0 animate-[unblur_1.5s_ease-out_0.2s_forwards]">
+        <div className="inline-block border border-brand-900/30 bg-brand-100/60 backdrop-blur-md px-8 py-3 rounded-full mb-6 opacity-0 animate-[unblur_1.5s_ease-out_0.2s_forwards]">
             <span className="text-brand-950 tracking-[0.4em] uppercase text-[10px] font-bold">
             Est. 2026 • Bordeaux
             </span>
         </div>
         
-        <h1 className="text-6xl md:text-8xl lg:text-9xl text-brand-950 mb-6 leading-none tracking-tight font-medium drop-shadow-sm opacity-95">
+        <h1 className="text-5xl md:text-7xl lg:text-8xl text-brand-950 mb-4 leading-none tracking-tight font-medium drop-shadow-sm mix-blend-overlay opacity-90">
           <span className="block opacity-0 animate-[unblur_1.5s_ease-out_0.5s_forwards]">Raw</span> 
-          <span className="block font-light italic text-brand-800 font-serif opacity-0 animate-[unblur_1.5s_ease-out_0.8s_forwards] -mt-2 md:-mt-6">Luxury</span>
+          <span className="block font-light italic text-brand-800 font-serif opacity-0 animate-[unblur_1.5s_ease-out_0.8s_forwards] -mt-1 md:-mt-3">Luxury</span>
         </h1>
 
-        <p className="text-brand-800/90 text-sm md:text-base tracking-[0.2em] uppercase font-medium mb-6 opacity-0 animate-[slide-up_1.2s_ease-out_0.9s_forwards]">
+        <p className="text-brand-800/90 text-sm md:text-base tracking-[0.2em] uppercase font-medium mb-4 opacity-0 animate-[slide-up_1.2s_ease-out_0.9s_forwards]">
           Skincare from the vine
         </p>
         
-        <p className="text-brand-900 text-xl md:text-2xl font-light mb-14 max-w-2xl mx-auto leading-relaxed opacity-0 animate-[slide-up_1.2s_ease-out_1s_forwards]">
+        <p className="text-brand-900 text-lg md:text-xl font-light mb-8 max-w-2xl mx-auto leading-relaxed opacity-0 animate-[slide-up_1.2s_ease-out_1s_forwards]">
           Unbleached linen. Sun-cured vines. <br className="hidden md:block" />
           A skincare ritual grounded in the elegance of the earth.
         </p>
