@@ -51,10 +51,14 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
             </span>
         </div>
         
-        <h1 className="text-6xl md:text-8xl lg:text-9xl text-brand-950 mb-8 leading-none tracking-tight font-medium drop-shadow-sm mix-blend-overlay opacity-90">
+        <h1 className="text-6xl md:text-8xl lg:text-9xl text-brand-950 mb-6 leading-none tracking-tight font-medium drop-shadow-sm mix-blend-overlay opacity-90">
           <span className="block opacity-0 animate-[unblur_1.5s_ease-out_0.5s_forwards]">Raw</span> 
           <span className="block font-light italic text-brand-800 font-serif opacity-0 animate-[unblur_1.5s_ease-out_0.8s_forwards] -mt-2 md:-mt-6">Luxury</span>
         </h1>
+
+        <p className="text-brand-800/90 text-sm md:text-base tracking-[0.2em] uppercase font-medium mb-6 opacity-0 animate-[slide-up_1.2s_ease-out_0.9s_forwards]">
+          Skincare from the vine
+        </p>
         
         <p className="text-brand-900 text-xl md:text-2xl font-light mb-14 max-w-2xl mx-auto leading-relaxed opacity-0 animate-[slide-up_1.2s_ease-out_1s_forwards]">
           Unbleached linen. Sun-cured vines. <br className="hidden md:block" />
