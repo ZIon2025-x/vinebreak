@@ -26,7 +26,7 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
   };
 
   return (
-    <section ref={heroRef} className="relative w-full h-screen overflow-hidden flex items-center justify-center bg-brand-200">
+    <section ref={heroRef} className="relative w-full min-h-screen flex items-center justify-center bg-brand-200 overflow-x-hidden overflow-y-auto">
       {/* Parallax Background Image */}
       {/* Moves slightly slower than scroll (factor 0.5) to create depth */}
       <div 
@@ -47,11 +47,11 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
       >
         <div className="inline-block border border-brand-900/30 bg-brand-100/60 backdrop-blur-md px-8 py-3 rounded-full mb-10 opacity-0 animate-[unblur_1.5s_ease-out_0.2s_forwards]">
             <span className="text-brand-950 tracking-[0.4em] uppercase text-[10px] font-bold">
-            Est. 2024 • Bordeaux
+            Est. 2026 • Bordeaux
             </span>
         </div>
         
-        <h1 className="text-6xl md:text-8xl lg:text-9xl text-brand-950 mb-6 leading-none tracking-tight font-medium drop-shadow-sm mix-blend-overlay opacity-90">
+        <h1 className="text-6xl md:text-8xl lg:text-9xl text-brand-950 mb-6 leading-none tracking-tight font-medium drop-shadow-sm opacity-95">
           <span className="block opacity-0 animate-[unblur_1.5s_ease-out_0.5s_forwards]">Raw</span> 
           <span className="block font-light italic text-brand-800 font-serif opacity-0 animate-[unblur_1.5s_ease-out_0.8s_forwards] -mt-2 md:-mt-6">Luxury</span>
         </h1>

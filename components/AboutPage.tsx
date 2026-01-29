@@ -49,7 +49,7 @@ export const AboutPage: React.FC = () => {
                      <div className="border-t border-brand-200 pt-8">
                          <div className="grid grid-cols-3 gap-8 text-center">
                              <div>
-                                 <span className="block text-4xl font-serif text-brand-900 mb-2">2024</span>
+                                 <span className="block text-4xl font-serif text-brand-900 mb-2">2026</span>
                                  <span className="text-[10px] uppercase tracking-widest text-brand-500">Established</span>
                              </div>
                              <div>
