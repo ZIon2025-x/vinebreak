@@ -6,8 +6,6 @@
 |--------|------|
 | hero-1-grapes-on-vine.jpg | 葡萄串与藤蔓（Napa 风格） |
 | hero-2-grapevine-closeup.jpg | 葡萄藤特写 |
-| hero-3-vineyard-rows.jpg | 葡萄园行 |
-| hero-4-grapes.jpg | 葡萄 |
 
 **切换图片：** 在 `components/Hero.tsx` 中修改 `HERO_BG_IMAGE` 常量为上表任一文件名，例如：
 
