@@ -14,14 +14,21 @@ export const AIConcierge: React.FC = () => {
   ]);
   const [inputValue, setInputValue] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const messagesEndRef = useRef<HTMLDivElement>(null);
+  const messagesContainerRef = useRef<HTMLDivElement>(null);
 
-  const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+  // 只滚动聊天容器内部，不触动页面滚动；仅在用户本就在底部附近时才自动跟到底部
+  const scrollToBottomIfNeeded = () => {
+    const el = messagesContainerRef.current;
+    if (!el) return;
+    const threshold = 80;
+    const isNearBottom = el.scrollHeight - el.scrollTop - el.clientHeight < threshold;
+    if (isNearBottom) {
+      el.scrollTop = el.scrollHeight;
+    }
   };
 
   useEffect(() => {
-    scrollToBottom();
+    scrollToBottomIfNeeded();
   }, [messages]);
 
   const handleSend = async () => {
@@ -131,8 +138,8 @@ export const AIConcierge: React.FC = () => {
                </div>
              </div>
 
-             {/* Chat Messages Area */}
-             <div className="h-[500px] overflow-y-auto p-8 space-y-8 bg-brand-50 relative z-10 scrollbar-hide">
+             {/* Chat Messages Area - 仅在此容器内滚动，不触发页面滚动 */}
+             <div ref={messagesContainerRef} className="h-[500px] overflow-y-auto p-8 space-y-8 bg-brand-50 relative z-10 scrollbar-hide">
                {messages.map((msg) => (
                  <div 
                    key={msg.id} 
@@ -160,7 +167,6 @@ export const AIConcierge: React.FC = () => {
                    </div>
                  </div>
                ))}
-               <div ref={messagesEndRef} />
              </div>
 
              {/* Input Area */}
