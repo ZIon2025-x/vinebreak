@@ -26,7 +26,7 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
   };
 
   return (
-    <section ref={heroRef} className="relative w-full h-screen overflow-hidden flex items-center justify-center bg-brand-200">
+    <section ref={heroRef} className="relative w-full h-screen overflow-hidden flex items-start justify-center pt-24 pb-20 bg-brand-200">
       {/* Parallax Background Image */}
       {/* Moves slightly slower than scroll (factor 0.5) to create depth */}
       <div 
@@ -42,7 +42,7 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
       <div className="absolute inset-0 bg-gradient-to-b from-brand-100/30 via-transparent to-brand-100/90 z-10"></div>
       
       {/* Content Layer - Moves slightly faster upwards (factor -0.3) */}
-      <div className="relative z-20 text-center px-6 max-w-5xl mx-auto py-8"
+      <div className="relative z-20 text-center px-6 max-w-5xl mx-auto w-full"
            style={{ transform: `translateY(${scrollY * -0.3}px)` }} 
       >
         <div className="inline-block border border-brand-900/30 bg-brand-100/60 backdrop-blur-md px-8 py-3 rounded-full mb-6 opacity-0 animate-[unblur_1.5s_ease-out_0.2s_forwards]">
